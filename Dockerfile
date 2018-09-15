@@ -1,6 +1,6 @@
-# use latest Node LTS (Boron)
-FROM node:boron
-# install Firebase CLI
-RUN npm install -g firebase-tools
+FROM gcr.io/cloud-builders/npm
 
-ENTRYPOINT ["/usr/local/bin/firebase"]
+RUN npm i firebase-tools
+COPY firebase.bash .
+
+ENTRYPOINT ["/firebase.bash"]
