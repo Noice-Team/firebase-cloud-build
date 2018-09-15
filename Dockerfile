@@ -1,6 +1,5 @@
 FROM gcr.io/cloud-builders/npm
+# install Firebase CLI
+RUN npm install -g firebase-tools
 
-RUN npm i firebase-tools
-COPY firebase.bash .
-
-ENTRYPOINT ["/firebase.bash"]
+ENTRYPOINT ["/usr/local/bin/firebase"]
